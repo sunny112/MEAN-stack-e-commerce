@@ -9,15 +9,16 @@ function ProductController($routeParams, $window, AuthFactory,jwtHelper,products
     vm.addtocart = addtocart;
     vm.showToast = showToast;
     console.log(typeof id);
-    productsFactory.productDetail(id).then(function (response) {
+    productsFactory.productDetail(id).then(
+        function (response) {
         vm.product = response.data;
         console.log(response.data);
-        vm.stars = _getStarRating(response.data.stars);
+        // vm.stars = _getStarRating(response.data.stars);
         // console.log(response.data.stars);
     });
-    function _getStarRating(stars){
-        return stars;
-    }
+    // function _getStarRating(stars){
+    //     return stars;
+    // }
     vm.isLoggedIn = function(){
         if (AuthFactory.isLoggedIn) {
             return true;
