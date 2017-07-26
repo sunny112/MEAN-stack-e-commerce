@@ -1,0 +1,57 @@
+<div class="container" >
+    <div >
+        <p>{{vm.loadName()}}'s shopping cart.</p>
+        <div class = "panel panel-primary " ng-if="!vm.cartempty">
+            <div class="panel-body">
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-repeat="product in vm.products " >
+                        <td><md-button ng-click="vm.remove(product)" class="md-accent">Remove</md-button><img ng-src="{{product.imagePath}}" style="height:100px;width:100px" /></td>
+                        <td >{{product.title}}</td>
+                        <td><input type="number" min="0"  class="form-control" oninput="validity.valid||(value='');" ng-model="product.quantity">
+                        </td>
+                        <td>{{product.price}}<md-button ng-click="vm.update(product,product.quantity, vm.alltotal() )" class="md-primary">Update</md-button></td>
+                        <td>{{(product.price*product.quantity).toFixed(2)}}</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total:</td>
+                        <td>{{vm.alltotal()}}</td>
+                    </tr>
+                    <tr><td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <md-button class="md-primary">
+                                <a href = "#!/checkout">Check Out</a>
+                        </md-button></td>
+                        <td></td></tr>
+                    </tfoot>
+
+                </table>
+                </div>
+            </div>
+        </div>
+        <div class="text-center"  ng-if="vm.cartempty">
+            <h2 class="text-center">Your cart is empty</h2>
+            <button type="button" class="btn btn-default">
+                <a href="#!/"> <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping</button>
+            </button>
+        </div>
+    </div>
+</div>

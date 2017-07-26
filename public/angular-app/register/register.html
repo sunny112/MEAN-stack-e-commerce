@@ -1,0 +1,69 @@
+
+<h1>Register</h1>
+<div ng-if="vm.message" class="alert alert-success" role="alert">
+    <p>{{ vm.message }}</p>
+</div>
+<div ng-if="vm.error" class="alert alert-danger" role="alert">
+    {{ vm.error }}
+</div>
+<md-content layout-padding>
+    <form ng-hide="vm.message" name="register" ng-submit="vm.register()">
+        <div class="form-group">
+        <md-input-container>
+            <!--<label for="username">Username</label>-->
+            <input type="username"
+                   class="form-control"
+                   id="username"
+                   placeholder="Username"
+                   ng-model="vm.username"
+                   autocapitalize="none">
+        </md-input-container>
+        </div>
+        <div class="form-group">
+            <md-input-container>
+                <!--<label for="name">Name</label>-->
+                <input type="name"
+                       class="form-control"
+                       id="name"
+                       placeholder="Name"
+                       ng-model="vm.name"
+                       autocapitalize="none">
+            </md-input-container>
+        </div>
+        <div class="form-group">
+            <md-input-container>
+                <!--<label for="email">Email</label>-->
+                <input type="email"
+                       class="form-control"
+                       id="email"
+                       placeholder="Email"
+                       ng-model="vm.email"
+                       autocapitalize="none">
+            </md-input-container>
+        </div>
+        <div class="form-group">
+            <md-input-container>
+                <!--<label for="password">Password</label>-->
+                <input type="password"
+                       class="form-control"
+                       id="password"
+                       placeholder="Password"
+                       ng-model="vm.password"
+                       autocapitalize="none">
+            </md-input-container>
+        </div>
+
+        <div class="form-group">
+            <md-input-container>
+                <!--<label for="password-repeat">Repeat Password</label>-->
+                <input type="password"
+                       class="form-control"
+                       id="password-repeat"
+                       placeholder="Repeat Password"
+                       ng-model="vm.passwordRepeat"
+                       autocapitalize="none">
+            </md-input-container>
+        </div>
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+</md-content>

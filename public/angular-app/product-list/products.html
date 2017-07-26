@@ -1,0 +1,117 @@
+<md-button ng-click="vm.openSidebar()">
+    <md-icon class = "mdi mdi-plus-circle"></md-icon>
+    New Product
+</md-button>
+<md-button ng-click="showFilters = true" >
+    <md-icon class = "mdi mdi-magnify"></md-icon>
+    Filters
+</md-button>
+<md-button> <a ng-href="#!/cart"> >
+    Shopping cart</a>
+</md-button>
+<div class="filters" layout="row" layout-align = "center center" ng-show="showFilters">
+    <md-input-container>
+        <label> Enter Search</label>
+        <input type="text" ng-model="productFilter">
+    </md-input-container>
+
+    <md-input-container>
+        <md-button class="md-warn" ng-click="productFilter = ''">
+            Clear
+        </md-button>
+    </md-input-container>
+</div>
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+            md-component-id="left">
+    <md-toolbar>
+        <h1 class="md-toolbar-tools">Add a new product</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+        <form>
+            <md-input-container>
+                <label for="title">Title</label>
+                <input type="text" id="title"
+                       ng-model="product.title"
+                       md-autofocus>
+            </md-input-container>
+
+            <md-input-container>
+                <label for="image">Image Link</label>
+                <input type="text" id="image"
+                       ng-model="product.imagePath">
+            </md-input-container>
+
+            <md-input-container>
+                <label for="description">Description</label>
+                <textarea type="text" id="description"
+                          ng-model="product.description">
+        </textarea>
+            </md-input-container>
+
+            <md-input-container>
+                <label for="price">Price</label>
+                <input type="text" id="price"
+                       ng-model="product.price">
+            </md-input-container>
+
+            <md-button ng-click="vm.saveProduct(product)" class="md-primary">
+                Save
+            </md-button>
+
+            <md-button ng-click="vm.closeSidebar()" class="md-warn">
+                Cancel
+            </md-button>
+
+            <!--<pre>{{product | json}}</pre>-->
+        </form>
+    </md-content>
+</md-sidenav>
+
+<md-content class="md-padding" layout="row" layout-wrap>
+<md-card ng-repeat = "product in vm.products | filter: productFilter" flex="20" center>
+    <a ng-href="#!/product/{{product._id}}"><img ng-src="{{product.imagePath}}" alt=""></a>
+    <md-card-content>
+        <div class="classified-info">
+            <h2 class="md-title"><a ng-href="#!/product/{{product._id}}">{{product.title}}</a></h2>
+            <h3>{{product.price | currency}}</h3>
+            <p>{{product.description}}</p>
+
+            <md-input-container>
+                <label>num</label>
+                <md-select ng-model="quantity">
+
+                        <md-option ng-value="o" ng-repeat="o in vm.options" >{{o}}</md-option>
+
+                </md-select>
+            </md-input-container>
+
+
+            <md-button ng-click="vm.addtocart(product,quantity)" class="md-primary">
+                Add to Cart
+            </md-button>
+        </div>
+
+    </md-card-content>
+</md-card>
+</md-content>
+
+<md-content>
+    <ul class="pagination">
+        <li ng-class="{disabled:vm.pager.currentPage === 1}">
+            <a ng-click="vm.setPage(1)">First</a>
+        </li>
+        <li ng-class="{disabled:vm.pager.currentPage === 1}">
+            <a ng-click="vm.setPage(vm.pager.currentPage - 1)">Previous</a>
+        </li>
+        <li ng-repeat="page in vm.pager.pages" ng-class="{active:vm.pager.currentPage === page}">
+            <a ng-click="vm.setPage(page)">{{page}}</a>
+        </li>
+        <li ng-class="{disabled:vm.pager.currentPage === vm.pager.totalPages}">
+            <a ng-click="vm.setPage(vm.pager.currentPage + 1)">Next</a>
+        </li>
+        <li ng-class="{disabled:vm.pager.currentPage === vm.pager.totalPages}">
+            <a ng-click="vm.setPage(vm.pager.totalPages)">Last</a>
+        </li>
+    </ul>
+</md-content>

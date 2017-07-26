@@ -1,0 +1,15 @@
+button .material-icons{
+    margin-top: -11px;
+}
+button.cancel {
+    background: #999;
+    border-color: #999;
+}
+
+button.cancel:hover {
+    background: #888;
+}
+
+
+
+

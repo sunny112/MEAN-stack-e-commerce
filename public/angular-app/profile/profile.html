@@ -1,0 +1,36 @@
+<h1>This is a profile</h1>
+<div class = "panel panel-primary">
+<div class="panel-body" >
+    <div class="table-responsive">
+        <table class="table" ng-repeat = "order in vm.orders">
+            <thead>
+            <tr>
+                <th>OrderNumber:</th>
+                <th>{{order._id}}</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <th>TotalPrice</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>{{order.createOn}}</th>
+                <th >${{order.cart[0].totalPrice}}</th>
+                <th>{{order.status}}</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+<div layout="row">
+    <div flex><img ng-src="{{vm.product.imagePath}}" alt=""></div>
+</div>
+<div layout="column">
+    <div flex><h1>{{vm.product.title}} </h1></div>
+    <!--<product-rating stars="vm.stars"></product-rating>-->
+    <div flex><p>{{vm.product.description}}</p></div>
+    <div>
+        <md-input-container>
+            <label>num</label>
+            <md-select ng-model="quantity">
+
+                <md-option ng-value="o" ng-repeat="o in vm.options" >{{o}}</md-option>
+
+            </md-select>
+        </md-input-container>
+
+
+        <md-button ng-click="vm.addtocart(product,quantity)" class="md-primary">
+            Add to Cart
+        </md-button>
+        <md-button> <a ng-href="#!/cart"> >
+            View cart</a>
+        </md-button>
+    </div>
+</div>
+
+<h3>Reviews</h3>
+<ul>
+    <li ng-repeat="review in vm.product.reviews"> <strong>{{ review.name }} says:</strong> {{ review.review }}</li>
+</ul>
+<div ng-if="vm.isLoggedIn()">
+<form name="vm.reviewForm" ng-submit="vm.addReview()">
+    <!--Your name: <input type="text" name="name" required ng-minlength="2" ng-model="vm.name">-->
+    <!--<div ng-show="vm.reviewForm.name.$dirty && vm.reviewForm.name.$invalid && vm.isSubmitted">-->
+        <!--<p>Name should be more than 2 characters long</p>-->
+    <!--</div>-->
+
+    Your rating: <input type="number" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
+    <div ng-show="vm.reviewForm.rating.$dirty && vm.reviewForm.rating.$invalid && vm.isSubmitted">
+        <p>Rating must be between 1-5.</p>
+
+    </div>
+
+    Your review: <textarea name="review" required ng-model="vm.review"></textarea>
+    <div ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">
+        <p>Please add a review</p>
+    </div>
+
+    <button type="submit" class="btn">Add review</button>
+</form>
+</div>
