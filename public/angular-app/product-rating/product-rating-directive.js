@@ -12,12 +12,12 @@
 //     }
 //   }
 // }
-
-angular.module('meanproduct').component('productRating', {
-    bindings: {
-        stars: '@'
-    },
-    template: '<span ng-repeat="star in vm.stars track by $index" class="glyphicon glyphicon-star">{{ star }}</span>',
-    controller: 'ProductController',
-    controllerAs: 'vm'
-});
+//
+// angular.module('meanproduct').component('productRating', {
+//     bindings: {
+//         stars: '@'
+//     },
+//     template: '<span ng-repeat="star in vm.stars track by $index" class="glyphicon glyphicon-star">{{ star }}</span>',
+//     controller: 'ProductController',
+//     controllerAs: 'vm'
+// });

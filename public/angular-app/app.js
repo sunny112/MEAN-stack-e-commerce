@@ -1,5 +1,5 @@
 angular
-        .module('meanproduct', ['ngMaterial', 'ngRoute', 'angular-jwt','angularPayments', 'ngAnimate', 'angularSpinner'])
+        .module('meanproduct', ['ngMaterial', 'ngRoute', 'angular-jwt','angularPayments', 'ngAnimate',])
         .config(config)
         .run(run);
 

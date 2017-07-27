@@ -11,7 +11,7 @@ db.once('open', function callback () {
     var products = [
         new Product({
             title:"cake",
-            imagePath:"http://i67.tinypic.com/5eeeyh.jpg",
+            imagePath:"https://s-media-cache-ak0.pinimg.com/736x/a0/92/31/a092319d68f18f2ee9e51676f9f1d740--butterfly-wedding-cake-butterfly-cakes.jpg",
             description:"chocolate cake",
             price:10,
             stars: 3.2,
@@ -24,7 +24,7 @@ db.once('open', function callback () {
         }),
         new Product({
             title:"crab",
-            imagePath:"http://i67.tinypic.com/8yvm74.jpg",
+            imagePath:"http://www.fengshui-chinese.com/discuz/attachments/forumid_20/f_81089_2_eCwtlvqKVjpf.jpg",
             description:"red crab",
             price:20,
             stars: 3.8,
@@ -37,7 +37,7 @@ db.once('open', function callback () {
         }),
         new Product({
             title:"mantis shrimp",
-            imagePath:"http://i.imgur.com/Wr2zTUK.jpg",
+            imagePath:"http://m.wanhuajing.com/pic/1605/2806/4122308/o_260.jpg",
             description:"delicious shrimp",
             price:15,
             stars: 4.2,
@@ -50,7 +50,7 @@ db.once('open', function callback () {
         }),
         new Product({
             title:"wine",
-            imagePath:"http://i.imgur.com/bImIst6.jpg",
+            imagePath:"http://www.dhresource.com/260x260s/f2-albu-g5-M01-8E-D9-rBVaJFlI6guANVIGAAH22nEO3vs876.jpg/2017-new-pvc-wine-beer-champagne-drink-cooler.jpg",
             description:"riesiling white wine",
             price:15,
             stars: 4.8,
